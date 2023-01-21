@@ -14,7 +14,7 @@ if bot_token == '':
   print("You need to assign the bot_token variable!")
   input("")
 
-syncTree = input("Do you want to sync the command tree?\nOnly do this once. (y/n) ")
+syncTree = input("Do you wish to sync the command tree?\nOnly do this once. (y/n) ")
 useCamera = input("Do you wish to use a webcam? (y/n) ")
 
 if (useCamera.lower() == "y"):
