@@ -35,7 +35,7 @@ async def on_ready():
         await bot.tree.sync()
         print("The command tree has been synced.")
 
-@bot.tree.command(name="screenshot", description="sends a screenshot of what the host is currently doing on their pc")
+@bot.tree.command(name="screenshot", description="sends a screenshot of what host is currently doing on their pc")
 async def Screenshot(interaction: discord.Interaction):
 
     if (useCamera.lower() == "y"):
@@ -66,7 +66,11 @@ async def Screenshot(interaction: discord.Interaction):
         img1 = Image.open(screenshot_file_name)
         img2 = Image.open(webcam_file_name)
 
-        img2 = img2.resize((int(img1.width / 3), int(img1.height / 3)), Image.LANCZOS)
+        webcamWidthPixelCountInRelationToHeight = img2.width / img2.height # i dont fucking know what to call this variable basically it stores how much longer the width is
+
+        screenshotWidth = img1.width
+
+        img2 = img2.resize((int(screenshotWidth / 3), int((screenshotWidth / 3) / webcamWidthPixelCountInRelationToHeight)), Image.LANCZOS)
 
         img1.paste(img2, (0, 0))
         img1.save("combined.png")
