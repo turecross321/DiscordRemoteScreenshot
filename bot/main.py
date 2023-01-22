@@ -9,10 +9,15 @@ intents = discord.Intents.default()
 
 bot = commands.Bot(command_prefix='!', intents=intents, help_command=None)
 
-bot_token = ''
-if bot_token == '':
-  print("You need to assign the bot_token variable!")
-  input("")
+try:
+    with open('token.txt', 'r', encoding="utf-8") as token:
+        bot_token = token.read()
+except:
+    print("No token.txt file found. Creating one...")
+    with open('token.txt', 'w') as file:
+        file.write("")
+    print("Done. Please paste your bot token in the token.txt file.")
+    input("")
 
 syncTree = input("Do you wish to sync the command tree?\nOnly do this once. (y/n) ")
 useCamera = input("Do you wish to use a webcam? (y/n) ")
