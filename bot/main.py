@@ -75,8 +75,6 @@ async def Screenshot(interaction: discord.Interaction):
         img1.paste(img2, (0, 0))
         img1.save("combined.png")
 
-        print(img2.size)
-
         await interaction.followup.send(file=discord.File("./combined.png"))
 
     else:
